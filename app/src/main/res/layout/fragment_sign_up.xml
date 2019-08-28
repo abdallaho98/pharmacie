@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:background="@color/background"
+                                                   tools:context=".SignUpFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="80dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/ss_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/num_ss"
+                style="@style/EditText"
+                android:drawableTint="@android:color/white"
+                android:drawableStart="@drawable/ic_icn_globe"
+                android:hint="Numéro de Sécurité Sociale"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/nom_layout"
+            app:layout_constraintTop_toBottomOf="@id/ss_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nom"
+                style="@style/EditText"
+                android:drawableStart="@drawable/ic_icn_rider_alt"
+                android:hint="Nom"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/prenom_layout"
+            app:layout_constraintTop_toBottomOf="@id/nom_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/prenom"
+                style="@style/EditText"
+                android:drawableStart="@drawable/ic_icn_rider"
+                android:hint="Prénom"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/addresse_layout"
+            app:layout_constraintTop_toBottomOf="@id/prenom_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/adress"
+                style="@style/EditText"
+                android:drawableStart="@drawable/icn_map"
+                android:hint="Adresse"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/number_layout"
+            app:layout_constraintTop_toBottomOf="@id/addresse_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/number"
+                style="@style/EditText"
+                android:drawableStart="@drawable/ic_icn_call"
+                android:hint="Password"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/number_layout"
+            android:id="@+id/login_button"
+            style="@style/Buttons"
+            android:text="Confirmer"
+            tools:ignore="MissingConstraints"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

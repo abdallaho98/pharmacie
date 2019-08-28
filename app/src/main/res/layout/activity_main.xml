@@ -4,16 +4,73 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
+        android:background="#303030"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:id="@+id/fragment"
+            android:layout_height="match_parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="80dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/phone_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc">
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone"
+                style="@style/EditText"
+                android:drawableStart="@drawable/ic_icn_call"
+                android:hint="Numéro de téléphone"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:id="@+id/password_layout"
+            app:layout_constraintTop_toBottomOf="@id/phone_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_height="72dp"
+            android:textColorHint="#bcbcbc"
+            app:passwordToggleTint="#ffffff"
+            app:passwordToggleDrawable="@drawable/ic_icn_eye"
+            app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                style="@style/EditText"
+                android:drawableStart="@drawable/ic_icn_password"
+                android:hint="Password"
+                android:inputType="textPassword"
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Button
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/password_layout"
+            android:id="@+id/login_button"
+            style="@style/Buttons"
+            android:text="Se connecter"
+            tools:ignore="MissingConstraints"/>
+
+    <Button
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/login_button"
+            android:id="@+id/signup_button"
+            style="@style/SecondeButtons"
+            android:text="s'inscrire"
+            tools:ignore="MissingConstraints"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

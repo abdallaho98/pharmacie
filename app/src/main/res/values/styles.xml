@@ -7,5 +7,49 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="Buttons" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_height">72dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:shadowColor">@color/gris</item>
+        <item name="android:shadowRadius">1.1</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:textColor" >@android:color/black</item>
+        <item name="android:textSize" >16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+    <style name="SecondeButtons" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_height">72dp</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:shadowColor">@color/gris</item>
+        <item name="android:shadowRadius">1.1</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="android:textColor" >@android:color/black</item>
+        <item name="android:textSize" >16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+    <style name="EditText" parent="Base.Widget.MaterialComponents.TextInputEditText">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColorHint">@color/gris</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+
+    </style>
+
+    <style name="Customized" parent="Base.Widget.MaterialComponents.TextInputLayout">
+
+    </style>
 
 </resources>
