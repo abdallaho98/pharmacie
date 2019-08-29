@@ -13,6 +13,11 @@
                 android:name=".MainActivity"
                 android:label="@string/title_activity_main">
         </activity>
+
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key" />
+
         <activity android:name=".AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
