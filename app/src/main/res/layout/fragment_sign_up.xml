@@ -4,7 +4,7 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   android:background="@color/background"
+                                                   android:background="@color/backgroundDark"
                                                    tools:context=".SignUpFragment">
 
     <com.google.android.material.textfield.TextInputLayout

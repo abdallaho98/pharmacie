@@ -17,7 +17,8 @@ class PharmaciesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pharmacies, container, false)
+        val view = inflater.inflate(R.layout.fragment_pharmacies, container, false)
+        return view
     }
 
 
