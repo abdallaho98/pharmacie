@@ -19,12 +19,12 @@
 
             <Spinner
                     android:backgroundTint="@color/background"
-                   android:layout_marginTop="@dimen/activity_vertical_margin"
-                   app:layout_constraintTop_toBottomOf="@id/wilayas"
-                   android:id="@+id/communes"
-                   android:layout_marginHorizontal="32dp"
-                   android:layout_width="match_parent"
-                   android:layout_height="60dp"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    app:layout_constraintTop_toBottomOf="@id/wilayas"
+                    android:id="@+id/communes"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
             />
 
 
