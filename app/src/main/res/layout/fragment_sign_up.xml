@@ -93,7 +93,7 @@
                 android:id="@+id/number"
                 style="@style/EditText"
                 android:drawableStart="@drawable/ic_icn_call"
-                android:hint="Password"
+                android:hint="Numéro de téléphone"
         />
     </com.google.android.material.textfield.TextInputLayout>
 

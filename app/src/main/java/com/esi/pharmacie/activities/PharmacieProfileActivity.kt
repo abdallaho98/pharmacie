@@ -5,6 +5,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import com.esi.pharmacie.R
 import com.esi.pharmacie.models.Pharmacie
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -37,6 +38,7 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
 
         val actionbar = supportActionBar
         actionbar?.setDisplayHomeAsUpEnabled(true)
+        actionbar?.setHomeButtonEnabled(true)
         pharmacie = intent.extras["pharmacie"] as Pharmacie
         val pharmacie = intent.extras["pharmacie"] as Pharmacie
         name.text = pharmacie.name
@@ -53,9 +55,20 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
         mapF.getMapAsync (this)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun resize(image: Drawable): Drawable {
         val b = (image as BitmapDrawable).bitmap
         val bitmapResized = Bitmap.createScaledBitmap(b, 100, 100, false)
         return BitmapDrawable(resources, bitmapResized)
     }
+
 }
