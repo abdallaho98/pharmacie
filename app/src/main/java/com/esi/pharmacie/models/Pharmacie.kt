@@ -1,9 +1,10 @@
 package com.esi.pharmacie.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 
 class Pharmacie (
-
     @SerializedName("_id")
     val id : String ,
     val ville : String ,
@@ -17,4 +18,4 @@ class Pharmacie (
     val fb : String? = "" ,
     @SerializedName("location")
     val localisation : Localisation
-    )
+    ) : Serializable

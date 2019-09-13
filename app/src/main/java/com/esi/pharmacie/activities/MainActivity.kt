@@ -1,10 +1,14 @@
-package com.esi.pharmacie
+package com.esi.pharmacie.activities
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.esi.pharmacie.R
+import com.esi.pharmacie.fragments.CommandFragment
+import com.esi.pharmacie.fragments.MapFragment
+import com.esi.pharmacie.fragments.PharmaciesFragment
+import com.esi.pharmacie.fragments.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 

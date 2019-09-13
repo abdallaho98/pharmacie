@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        tools:context=".activities.PharmacieProfileActivity"
+        android:layout_height="wrap_content">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin"
+            android:background="@color/backgroundDark"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Name :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="name Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/name"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Wilaya :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="wilaya Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/wilaya"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Ville :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="ville Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/ville"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Adress :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="adress Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/adress"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Caisse :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="Caisse Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/caisse"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Overture :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="over Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/heurover"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Fermeture :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="fermeture Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/fermheur"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Phone :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="phone Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/phone"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="60dp">
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="30"
+                      android:text="Facebook :"
+                      android:textSize="16sp"
+                      android:gravity="center_vertical|end"
+                      android:textColor="@color/gris"
+                      android:layout_height="match_parent"/>
+            <TextView android:layout_width="0dp"
+                      android:gravity="center_vertical|start"
+                      android:layout_weight="70"
+                      android:textSize="16sp"
+                      android:paddingStart="8dp"
+                      android:text="Facebook Here"
+                      android:textColor="@android:color/white"
+                      android:id="@+id/facebook"
+                      android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+    </LinearLayout>
+</ScrollView>

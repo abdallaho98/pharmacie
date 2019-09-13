@@ -1,4 +1,4 @@
-package com.esi.pharmacie
+package com.esi.pharmacie.fragments
 
 
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.esi.pharmacie.R
 import com.esi.pharmacie.adapters.PharmacieAdapter
 import com.esi.pharmacie.models.Commune
 import com.esi.pharmacie.models.Pharmacie
@@ -18,9 +18,6 @@ import com.esi.pharmacie.models.Responce
 import com.esi.pharmacie.models.Wilaya
 import com.esi.pharmacie.services.PharmacieService
 import com.esi.pharmacie.services.RetrofitService
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.android.synthetic.main.fragment_pharmacies.*
 import kotlinx.android.synthetic.main.fragment_pharmacies.view.*
 import org.json.JSONArray
 import retrofit2.Call
@@ -61,9 +58,9 @@ class PharmaciesFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_pharmacies, container, false)
         view.list.layoutManager = LinearLayoutManager(activity)
-        adapter = PharmacieAdapter(pharmacies, context!!)
+        adapter = PharmacieAdapter(pharmacies, activity!!)
         view.list.adapter = adapter
-        view.wilayas.adapter = ArrayAdapter<String>(activity, R.layout.item_spinner , wilayaName)
+        view.wilayas.adapter = ArrayAdapter<String>(activity, R.layout.item_spinner, wilayaName)
         fetchPharmacies("","")
 
 
@@ -80,7 +77,8 @@ class PharmaciesFragment : Fragment() {
                         communeSelected.add(commune[i])
                         communeName.add(commune[i].name)
                     }
-                view.communes.adapter = ArrayAdapter<String>(activity, R.layout.item_spinner , communeName )
+                view.communes.adapter = ArrayAdapter<String>(activity,
+                    R.layout.item_spinner, communeName )
                 Log.e("Selected",selectedItem.substring(2))
                 fetchPharmacies("",selectedItem.substring(2).trim())
             }
@@ -91,7 +89,7 @@ class PharmaciesFragment : Fragment() {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedItem = parent?.getItemAtPosition(position).toString()
-                Log.e("Selected",selectedItem.substring(2))
+                Log.e("Selected",selectedItem)
                 fetchPharmacies(selectedItem.trim(),view?.wilayas?.selectedItem.toString().substring(2).trim())
             }
 

@@ -1,4 +1,4 @@
-package com.esi.pharmacie
+package com.esi.pharmacie.fragments
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.esi.pharmacie.R
 
 
 class CodeConfirmeFragment : Fragment() {

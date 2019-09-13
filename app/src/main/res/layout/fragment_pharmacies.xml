@@ -5,7 +5,7 @@
         android:layout_width="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/backgroundDark"
         android:layout_height="match_parent"
-        tools:context=".PharmaciesFragment">
+        tools:context=".fragments.PharmaciesFragment">
 
             <Spinner
                     android:backgroundTint="@color/background"

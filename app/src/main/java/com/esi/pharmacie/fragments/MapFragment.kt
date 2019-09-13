@@ -1,4 +1,4 @@
-package com.esi.pharmacie
+package com.esi.pharmacie.fragments
 
 
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -17,11 +16,10 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.util.Log
-import com.esi.pharmacie.models.Pharmacie
+import com.esi.pharmacie.R
 import com.esi.pharmacie.models.Responce
 import com.esi.pharmacie.services.PharmacieService
 import com.esi.pharmacie.services.RetrofitService
-import kotlinx.android.synthetic.main.fragment_map.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

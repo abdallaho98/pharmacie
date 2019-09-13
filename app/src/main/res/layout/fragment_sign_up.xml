@@ -5,7 +5,7 @@
                                                    android:layout_height="match_parent"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    android:background="@color/backgroundDark"
-                                                   tools:context=".SignUpFragment">
+                                                   tools:context=".fragments.SignUpFragment">
 
     <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="80dp"
