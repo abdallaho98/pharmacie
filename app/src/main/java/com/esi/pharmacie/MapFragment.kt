@@ -16,7 +16,15 @@ import com.google.android.gms.maps.model.MarkerOptions
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.util.Log
+import com.esi.pharmacie.models.Pharmacie
+import com.esi.pharmacie.models.Responce
+import com.esi.pharmacie.services.PharmacieService
+import com.esi.pharmacie.services.RetrofitService
 import kotlinx.android.synthetic.main.fragment_map.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class MapFragment : Fragment() , OnMapReadyCallback {
@@ -25,12 +33,26 @@ class MapFragment : Fragment() , OnMapReadyCallback {
 
         val icon = BitmapDescriptorFactory.fromBitmap((resize(resources.getDrawable(R.drawable.ic_pharmacie)) as BitmapDrawable).bitmap)
 
-        val markerOptions = MarkerOptions().position(LatLng(36.7201751,3.1889806))
-            .title("Pharmacie Hamdaoui")
-            .icon(icon)
+        val service = RetrofitService.retrofit.create(PharmacieService::class.java)
 
-        val mMarker = googleMap?.addMarker(markerOptions)
-        googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mMarker?.position, 15F))
+        service.nearPharmacies(35.1531,3.123).enqueue(object: Callback<Responce> {
+            override fun onResponse(call: Call<Responce>, response: Response<Responce>) {
+                val allPharmacie = response.body().pharmacies
+                allPharmacie?.let {
+                    for( pharmacie in it) {
+                        Log.d("Pharmacie","Pharmacie Nom : ${pharmacie.name}")
+                        val markerOptions = MarkerOptions().position(LatLng(pharmacie.localisation.coordinates[0],pharmacie.localisation.coordinates[1]))
+                            .title(pharmacie.name)
+                            .icon(icon)
+                        val mMarker = googleMap?.addMarker(markerOptions)
+                        //googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(mMarker?.position, 15F))
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Responce>, t: Throwable) {
+                Log.e("TAN", "Error : $t")
+            }
+        })
 
     }
 

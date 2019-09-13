@@ -18,6 +18,7 @@
             />
 
             <Spinner
+
                     android:backgroundTint="@color/background"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     app:layout_constraintTop_toBottomOf="@id/wilayas"
