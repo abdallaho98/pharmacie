@@ -9,6 +9,7 @@ import com.esi.pharmacie.fragments.CommandFragment
 import com.esi.pharmacie.fragments.MapFragment
 import com.esi.pharmacie.fragments.PharmaciesFragment
 import com.esi.pharmacie.fragments.ProfileFragment
+import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
 
