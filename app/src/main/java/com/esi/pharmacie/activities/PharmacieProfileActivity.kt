@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import com.esi.pharmacie.R
 import com.esi.pharmacie.models.Command
@@ -52,9 +53,12 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
     private var storageReference: StorageReference? = null
 
 
+
+    //initiat the little map
     override fun onMapReady(p0: GoogleMap?) {
         val icon = BitmapDescriptorFactory.fromBitmap((resize(resources.getDrawable(R.drawable.ic_pharmacie)) as BitmapDrawable).bitmap)
 
+        //add the marker
         val markerOptions = MarkerOptions().position(LatLng(pharmacie.localisation.coordinates[0],pharmacie.localisation.coordinates[1]))
             .title(pharmacie.name)
             .icon(icon)
@@ -83,7 +87,16 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
         val mapF = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapF.getMapAsync (this)
 
+        if(StaticObjects.getSavedData("user",applicationContext) != null){
+            StaticObjects.setUser(StaticObjects.getSavedData("user",applicationContext) as User)
+        }
+        val user = StaticObjects.getUser()
+        if(user == null){
+            commander.visibility = View.GONE
+        }
+
         commander.setOnClickListener {
+            //init firebase storage
             firebaseStore = FirebaseStorage.getInstance()
             storageReference = FirebaseStorage.getInstance().reference
             launchGallery()
@@ -107,6 +120,8 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
     }
 
 
+
+    //when cliccked on command
     private fun launchGallery() {
         val intent = Intent()
         intent.type = "image/*"
@@ -114,6 +129,8 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
     }
 
+
+    //when choose image
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
@@ -131,6 +148,7 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
         }
     }
 
+    //upload image to firebase storage
     private fun uploadImage(){
         if(filePath != null){
             val ref = storageReference?.child("uploads/" + UUID.randomUUID().toString())
@@ -158,6 +176,7 @@ class PharmacieProfileActivity : AppCompatActivity() , OnMapReadyCallback {
         }
     }
 
+    //add command to database
     private fun saveCommand(link : String){
         val service = RetrofitService.retrofit.create(CommandService::class.java)
         service.addCommand(StaticObjects.getUser().id,pharmacie.id,link,"Progres").enqueue(object: Callback<Command> {

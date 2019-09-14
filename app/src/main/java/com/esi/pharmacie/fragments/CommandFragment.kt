@@ -1,6 +1,7 @@
 package com.esi.pharmacie.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.esi.pharmacie.R
+import com.esi.pharmacie.activities.AuthActivity
 import com.esi.pharmacie.adapters.CommandAdapter
 import com.esi.pharmacie.adapters.PharmacieAdapter
 import com.esi.pharmacie.models.*
@@ -16,7 +18,9 @@ import com.esi.pharmacie.services.CommandService
 import com.esi.pharmacie.services.PharmacieService
 import com.esi.pharmacie.services.RetrofitService
 import kotlinx.android.synthetic.main.fragment_command.view.*
+import kotlinx.android.synthetic.main.fragment_command.view.auth
 import kotlinx.android.synthetic.main.fragment_pharmacies.view.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,6 +46,10 @@ class CommandFragment : Fragment() {
         if(user == null){
             view.commands.visibility = View.INVISIBLE
             view.auth.visibility = View.VISIBLE
+            view.auth.setOnClickListener {
+                startActivity(Intent(activity , AuthActivity::class.java))
+                activity?.finish()
+            }
         } else {
             val service = RetrofitService.retrofit.create(CommandService::class.java)
             view.commands.layoutManager = LinearLayoutManager(activity)
@@ -52,9 +60,10 @@ class CommandFragment : Fragment() {
             service.commands(user.id).enqueue(object: Callback<CommandResponce> {
                 override fun onResponse(call: Call<CommandResponce>, response: Response<CommandResponce>) {
                     val newCommands = response.body().commands
-                    Log.e("Succes", "Error : ${response.body().commands[0]}")
-                    adapter.change(newCommands)
-                    adapter.notifyDataSetChanged()
+                    if(newCommands.size > 0){
+                        adapter.change(newCommands)
+                        adapter.notifyDataSetChanged()
+                    }
                 }
                 override fun onFailure(call: Call<CommandResponce>, t: Throwable) {
                     Log.e("ERROR", "Error : ${t.message}")

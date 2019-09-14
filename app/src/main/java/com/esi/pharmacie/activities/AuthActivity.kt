@@ -27,6 +27,7 @@ class AuthActivity : AppCompatActivity() {
         val service = RetrofitService.retrofit.create(UserService::class.java)
         setContentView(R.layout.activity_auth)
         signup_button.setOnClickListener {
+            //go to sign up fragment
             supportFragmentManager.beginTransaction().add(R.id.fragment, SignUpFragment(),"SignUp").commit()
         }
 

@@ -48,6 +48,7 @@ class MapFragment : Fragment() , OnMapReadyCallback {
 
         googleMapI = googleMap!!
         val icon = BitmapDescriptorFactory.fromBitmap((resize(resources.getDrawable(R.drawable.ic_pharmacie)) as BitmapDrawable).bitmap)
+        //localisation
         var locationManager= activity?.applicationContext?.getSystemService(LOCATION_SERVICE) as LocationManager
         locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3, 3f, locationListener)
 
@@ -60,6 +61,7 @@ class MapFragment : Fragment() , OnMapReadyCallback {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_map, container, false)
+        //init map
         val mapF = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapF.getMapAsync(this)
         return view
@@ -71,14 +73,17 @@ class MapFragment : Fragment() , OnMapReadyCallback {
         fun newInstance() = MapFragment()
     }
 
+    //resize icon pharmacie
     private fun resize(image: Drawable): Drawable {
         val b = (image as BitmapDrawable).bitmap
         val bitmapResized = Bitmap.createScaledBitmap(b, 100, 100, false)
         return BitmapDrawable(resources, bitmapResized)
     }
 
+    //localisation change
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
+            googleMapI.clear()
             drawCircle(LatLng(location.latitude,location.longitude))
             googleMapI.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude,location.longitude), 13F))
             updateMap(LatLng(location.latitude,location.longitude))
@@ -88,6 +93,8 @@ class MapFragment : Fragment() , OnMapReadyCallback {
         override fun onProviderDisabled(provider: String) {}
     }
 
+
+    //draw circle on my localization
      private fun drawCircle(point : LatLng){
                 val circleOptions = CircleOptions()
                 circleOptions.center(point)
@@ -98,6 +105,8 @@ class MapFragment : Fragment() , OnMapReadyCallback {
                 googleMapI.addCircle(circleOptions)
             }
 
+
+    //get near pharmacies
     private fun updateMap(pos : LatLng){
         val icon = BitmapDescriptorFactory.fromBitmap((resize(resources.getDrawable(R.drawable.ic_pharmacie)) as BitmapDrawable).bitmap)
         service.nearPharmacies(pos.latitude,pos.longitude).enqueue(object: Callback<Responce> {

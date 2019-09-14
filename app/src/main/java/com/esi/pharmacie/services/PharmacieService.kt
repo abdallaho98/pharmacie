@@ -10,11 +10,11 @@ import retrofit2.http.Query
 
 interface PharmacieService {
 
-    @GET("/pharmacies/near")
+    @GET("/pharmacies/near")//les pharmacies proche
     @SerializedName("pharmacies")
-    fun nearPharmacies(@Query("lat") lat: Double, @Query("lng") lng : Double ): Call<Responce>
+    fun nearPharmacies(@Query("lat") lat: Double, @Query("lng") lng : Double ): Call<Responce>//get pharmacies near by sebding my position
 
 
     @GET("/pharmacies")
-    fun pharmacies(@Query("ville") ville: String, @Query("wilaya") wilaya: String ): Call<Responce>
+    fun pharmacies(@Query("ville") ville: String, @Query("wilaya") wilaya: String ): Call<Responce> //get pharmacies after filtrage
 }

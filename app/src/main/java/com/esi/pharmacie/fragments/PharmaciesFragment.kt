@@ -36,7 +36,7 @@ class PharmaciesFragment : Fragment() {
     private val service = RetrofitService.retrofit.create(PharmacieService::class.java)
     private lateinit var adapter : PharmacieAdapter
 
-
+//parcourir les fichier json des wilaya et comune
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val jsonArray = JSONArray(readFileFromRawDirectory(R.raw.wilayas))
@@ -51,6 +51,8 @@ class PharmaciesFragment : Fragment() {
 
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,6 +65,8 @@ class PharmaciesFragment : Fragment() {
         view.wilayas.adapter = ArrayAdapter<String>(activity, R.layout.item_spinner, wilayaName)
         fetchPharmacies("","")
 
+
+        //listner de changement de wilaya
 
         view.wilayas?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -84,6 +88,7 @@ class PharmaciesFragment : Fragment() {
             }
         }
 
+        //listner de changement de comune
         view.communes.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) { }
 
